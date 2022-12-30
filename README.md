@@ -1,10 +1,3 @@
-# Firebase commands
-firebase deploy --only hosting
-
-https://firebase.google.com/docs/hosting/test-preview-deploy
-
-
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
