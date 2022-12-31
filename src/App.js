@@ -1,12 +1,14 @@
-import ProfileCard from './ProfileCard';
+import SearchBar from './components/SearchBar';
+import searchImages from './api';
 
 function App() {
+  const handleSubmit = (term) => {
+    searchImages(term)
+  };
+
   return (
     <div>
-      <div>Personal Digital Assistants</div>
-      <ProfileCard />
-      <ProfileCard />
-      <ProfileCard />
+      <SearchBar onSubmit={handleSubmit} />
     </div>
   );
 }
