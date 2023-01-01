@@ -1,9 +1,9 @@
 import SearchBar from './components/SearchBar';
-import searchImages from './api';
+import getTranslatedResponse from './api';
 
 function App() {
   const handleSubmit = (term) => {
-    searchImages(term)
+    getTranslatedResponse(term, "German")
   };
 
   return (
