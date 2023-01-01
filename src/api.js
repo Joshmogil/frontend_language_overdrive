@@ -16,9 +16,8 @@ function getTranslatedResponse(message,target_language){
       // Read result of the Cloud Function.
       /** @type {any} */
       const data = result.data;
-      const sanitizedMessage = data.text;
-      console.log(data)
-      return data
+      console.log(data.text)
+      return data.text
     });
 }
 
