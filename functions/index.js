@@ -5,7 +5,7 @@ const cors = require("cors")({origin: true});
 
 exports.getTranslation = functions.https.onRequest((request, response) => {
   cors(request, response, () => {});
-  const data = request.body;
+  const data = request.body.data;
   console.log(data);
   const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
@@ -15,9 +15,13 @@ exports.getTranslation = functions.https.onRequest((request, response) => {
   // console.log(data);
   // console.log(openai);
 
+  console.log(data);
+
+  const msgPrompt = `In ${data.target} respond in an endearing way to: ${data.text}`;
+  console.log(msgPrompt);
   openai.createCompletion({
     model: "text-davinci-003",
-    prompt: "Hello there",
+    prompt: msgPrompt,
     temperature: 0.7,
     max_tokens: 256,
     top_p: 1,
