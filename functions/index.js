@@ -1,5 +1,7 @@
 const functions = require("firebase-functions");
 const {Configuration, OpenAIApi} = require("openai");
+const {Translate} = require("@google-cloud/translate").v2;
+
 const cors = require("cors")({origin: true});
 // Add CORS to your index.js
 
@@ -34,3 +36,17 @@ exports.getTranslation = functions.https.onRequest((request, response) => {
   });
 });
 
+exports.translateMessage = functions.https.onRequest((request, response) => {
+  cors(request, response, () => {});
+  const data = request.body.data;
+  console.log(data);
+  const translate = new Translate();
+  translate.translate(data.text, data.target).then((translations) => {
+    translations = Array.isArray(translations) ? translations : [translations];
+    console.log("Translations:");
+    translations.forEach((translation, i) => {
+      console.log(`${data.text[i]} => (${data.target}) ${translation}`);
+      response.status(200).send({data: translation});
+    });
+  });
+});

@@ -8,6 +8,7 @@ const app = initializeApp({
    });
 const functions = getFunctions(app);
 
-const translate = httpsCallable(functions, 'getTranslation');
+const getMessage = httpsCallable(functions, 'getTranslation'); //misnomer
+const getTranslation = httpsCallable(functions,"translateMessage")
 
-export default translate;
+export {getMessage, getTranslation};
