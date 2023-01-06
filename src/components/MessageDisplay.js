@@ -1,3 +1,5 @@
+import "./css/display.css"
+
 import MessageShow from './MessageShow';
 
 
@@ -8,7 +10,7 @@ function MessageDisplay({ messages }) {
                 <MessageShow message={message}/>
                 </div> ;
     });
-    return <div>{renderedMessages}</div>;
+    return <div className="text-screen">{renderedMessages}</div>;
 }
 
 export default MessageDisplay

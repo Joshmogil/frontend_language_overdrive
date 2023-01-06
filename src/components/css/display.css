@@ -1,0 +1,8 @@
+.text-screen {
+    display: flex;
+    justify-content: space-between;
+    gap:12px;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 4px 0;
+  }

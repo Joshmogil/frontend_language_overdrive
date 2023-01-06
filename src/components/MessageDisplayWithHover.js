@@ -1,3 +1,5 @@
+import "./css/message.css"
+
 import { useState } from 'react';
 
 const HoverableDiv = ({ message }) => {
@@ -13,13 +15,14 @@ const HoverableDiv = ({ message }) => {
     };
 
     return (
-        <div>
-        <div onMouseDownCapture={handleSelect}>
-            <div>{message.response}</div>
-        </div>
+        <div className="message-from-container">
+        <div className="filler-div"></div>
         {isSelected && (
           <div>{message.translatedResponse}</div>
         )}
+        <div className="message-from" onMouseDownCapture={handleSelect}>
+            <div>{message.response}</div>
+        </div>
       </div>
     );
   };
