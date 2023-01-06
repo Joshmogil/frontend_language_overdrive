@@ -31,9 +31,10 @@ function App() {
 
   return (
     <div>
+      <div id="TextScreen">
       <MessageDisplay messages={messages} />
+      </div>
       <SearchBar onSubmit={handleSubmit} />
-      
     </div>
   );
 }

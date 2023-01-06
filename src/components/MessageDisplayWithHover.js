@@ -1,22 +1,23 @@
 import { useState } from 'react';
 
 const HoverableDiv = ({ message }) => {
-    const [isHovering, setIsHovering] = useState(false);
+    const [isSelected, setSelected] = useState(false);
 
-    const handleMouseOver = () => {
-      setIsHovering(true);
-    };
-  
-    const handleMouseOut = () => {
-      setIsHovering(false);
+    const handleSelect = () => {
+        if (isSelected === true){
+            setSelected(false);
+        } else {
+            setSelected(true)
+        }
+            
     };
 
     return (
         <div>
-        <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+        <div onMouseDownCapture={handleSelect}>
             <div>{message.response}</div>
         </div>
-        {isHovering && (
+        {isSelected && (
           <div>{message.translatedResponse}</div>
         )}
       </div>
