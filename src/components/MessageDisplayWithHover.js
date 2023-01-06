@@ -1,9 +1,26 @@
+import { useState } from 'react';
 
+const HoverableDiv = ({ message }) => {
+    const [isHovering, setIsHovering] = useState(false);
 
-const HoverableDiv = ({ handleMouseOver, handleMouseOut }) => {
+    const handleMouseOver = () => {
+      setIsHovering(true);
+    };
+  
+    const handleMouseOut = () => {
+      setIsHovering(false);
+    };
+
     return (
-      <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-        Hover Me
+        <div>
+        <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+            <div>{message.response}</div>
+        </div>
+        {isHovering && (
+          <div>{message.translatedResponse}</div>
+        )}
       </div>
     );
   };
+
+export default HoverableDiv

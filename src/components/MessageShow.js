@@ -1,11 +1,11 @@
+import SingleMessageShow from './MessageShowSingle';
+import HoverableDiv from './MessageDisplayWithHover';
+
 function MessageShow({ message }) {
+    console.log(`MessageShow ${message}`)
     return <div>
-            <div>{message.message}</div>
-            <div>{message.response}</div>
-            <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-      Hover Me
-    </div>
-            <div>{message.translatedResponse}</div>
+            <SingleMessageShow message={message}/>
+            <HoverableDiv message={message}/>
             </div>;
 }
 
