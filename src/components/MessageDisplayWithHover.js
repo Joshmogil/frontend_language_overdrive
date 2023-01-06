@@ -18,10 +18,10 @@ const HoverableDiv = ({ message }) => {
         <div className="message-from-container">
         <div className="filler-div"></div>
         {isSelected && (
-          <div>{message.translatedResponse}</div>
+          <div className="translated-from" >{message.translatedResponse}</div>
         )}
         <div className="message-from" onMouseDownCapture={handleSelect}>
-            <div>{message.response}</div>
+            <div >{message.response}</div>
         </div>
       </div>
     );
